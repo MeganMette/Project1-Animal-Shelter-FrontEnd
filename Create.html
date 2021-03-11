@@ -1,5 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <title>Create</title>     
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a pet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<head>   
     <link rel="stylesheet" href="./index.css">  
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <p><h1><b>Yorkshire Animal Shelter</b></h1></p>
@@ -10,101 +20,55 @@
               <a class="nav-link active" aria-current="page" href="./HomePage.html">Home</a>
             </li>
                 <li><a class="dropdown-item" href="#">Create</a></li>
-                <li><a class="dropdown-item" href="#">Update</a></li>
-                <li><a class="dropdown-item" href="#">Delete</a></li>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 </head>
-<form class="row g-3">
-    <p><h3><b>Create pet advert</b></h3></p>
-    <div class="input-group">
-        <label for="inputAnimalType" class="form-label">Animal Type</label>
-        <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-          <option selected>Select an animal type:</option>
-          <option value="1">Cat</option>
-          <option value="2">Dog</option>
-          <option value="3">Guinea Pig</option>
-          <option value="3">Hampster</option>
-          <option value="3">Rabbit</option>
-        </select>
-        <button class="btn btn-outline-secondary" type="button">Select</button>
-      </div>
-    <div class="col-md-6">
-      <label for="inputName" class="form-label">Name</label>
-      <input type="Name" class="form-control" id="inputName" placeholder="Name">
+<body class="p-5">
+    <main class="container">
+        <div class="row">
+        <section class="col">
+            <form id="personForm">
+                <label for="nameField" class="form-label">Animal Type:</label>
+                <input id="nameField" class="form-control" name="animalType">
+                <label for="nameField" class="form-label">Name:</label>
+                <input id="nameField" class="form-control" name="name">
+                <label for="ageField" class="form-label">Age:</label>
+                <input id="ageField" class="form-control" type="number" name="age">
+                <label for="nameField" class="form-label">Gender:</label>
+                <input id="nameField" class="form-control" name="gender">
+                <label for="nameField" class="form-label">Breed:</label>
+                <input id="nameField" class="form-control" name="breed">
+                <label for="nameField" class="form-label">Size:</label>
+                <input id="nameField" class="form-control" name="size">
+                <label for="nameField" class="form-label">Location:</label>
+                <input id="nameField" class="form-control" name="location">
+                <label for="nameField" class="form-label">Additional Information:</label>
+                <input id="nameField" class="form-control" name="additionalInformation">
+                <button class="btn btn-primary mt-2">Add</button>
+            </form>
+            <div>
+                <h3>Animal Created</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Breed</th>
+                        <th>Size</th>
+                        <th>Location</th>
+                        <th>Additional Information</th>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </div>
-    <div class="col-md-6">
-      <label for="inputAge" class="form-label">Age</label>
-      <input type="age" class="form-control" id="inputAge"  placeholder="Age">
-    </div>
-    <div class="col-12">
-        <label for="inputBreed" class="form-label">Breed</label>
-      <input type="text" class="form-control" id="inputBreed" placeholder="Breed">
-    </div>
-    <div class="col-12">
-      <label for="inputGender" class="form-label">Gender</label>
-      <input type="text" class="form-control" id="inputGender" placeholder="Male or Female">
-    </div>
-    <div class="col-md-6">
-      <label for="inputSize" class="form-label">Size</label>
-      <input type="text" class="form-control" id="inputSize" placeholder="Small, Medium, Large">
-    </div>
-    <div class="col-md-2">
-      <label for="inputLocation" class="form-label">Location</label>
-      <input type="text" class="form-control" id="inputLocation" placeholder="City">
-    </div>
-    <div class="col-sm-7">
-        <label for="inputAdditionalInformation" class="form-label">Additional Information</label>
-        <input type="text" class="form-control" id="inputAdditionalInformation" placeholder="History, medical information etc" aria-label=".form-control-lg example">
-    </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck2">
-        <label class="form-check-label" for="gridCheck">
-          Neutered
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck2">
-        <label class="form-check-label" for="gridCheck">
-          Spayed
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck2">
-        <label class="form-check-label" for="gridCheck">
-          Wormed
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck3">
-        <label class="form-check-label" for="gridCheck">
-          Initial aseessment completed
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck3">
-        <label class="form-check-label" for="gridCheck">
-            Can they live with other pets 
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck3">
-        <label class="form-check-label" for="gridCheck">
-            Can they live with children 
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck3">
-        <label class="form-check-label" for="gridCheck">
-            Trained 
-        </label>
-      </div>
-    </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Create</button>
-    </div>
-  </form>
-  <a href="./index.html">Home page</a>
+    </main>
+    <script src="./HomePage.html"></script>
+</body>
+
+</html>
