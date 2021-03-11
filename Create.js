@@ -23,10 +23,10 @@ function addText(text) {
 
 const tableBody = document.getElementByType('tableBody');
 
-const personForm = document.getElementByType('personForm');
+const animalForm = document.getElementByType('animalForm');
 
-personForm.addEventListener('submit', function (event) {
-    event.preventDefault(); // stops form submitting and refreshing the page
+animalForm.addEventListener('submit', function (event) {
+    event.preventDefault(); 
 
     const animalType = this.animalType.value;
     const name = this.name.value;

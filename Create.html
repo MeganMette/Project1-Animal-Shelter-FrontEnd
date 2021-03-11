@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,25 +12,38 @@
 <head>   
     <link rel="stylesheet" href="./index.css">  
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <p><h1><b>Yorkshire Animal Shelter</b></h1></p>
       <div class="container-fluid">
+        <h1><b>Yorkshire Animal Shelter</b></h1>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="./HomePage.html">Home</a>
             </li>
-                <li><a class="dropdown-item" href="#">Create</a></li>
+                <li><a class="dropdown-item" href="./Create.html">Create</a></li>
             </li>
           </ul>
         </div>
       </div>
+      <div class="dropdown">
+        <a class="btn btn-secondary" dropdown-toggle role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="background: rgb(211, 15, 146)" >
+          Choose Animal by Type:
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a class="dropdown-item" href="./Cat.html">Cat</a></li>
+          <li><a class="dropdown-item" href="./Dog.html">Dog</a></li>
+          <li><a class="dropdown-item" href="./GuineaPig.html">Guinea Pigs</a></li>
+          <li><a class="dropdown-item" href="./Hampster.html">Hampster</a></li>
+          <li><a class="dropdown-item" href="./Rabbit.html">Rabbit</a></li>
+        </ul>
+      </div>
     </nav>
 </head>
-<body class="p-5">
+<body>
     <main class="container">
         <div class="row">
         <section class="col">
-            <form id="personForm">
+            <form id="animalForm">
+              <br>
                 <label for="nameField" class="form-label">Animal Type:</label>
                 <input id="nameField" class="form-control" name="animalType">
                 <label for="nameField" class="form-label">Name:</label>

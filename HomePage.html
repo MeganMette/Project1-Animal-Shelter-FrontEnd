@@ -12,10 +12,8 @@
 <head>   
     <link rel="stylesheet" href="./index.css">  
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div>
-      <p><h1><b>Yorkshire Animal Shelter</b></h1></p>
-      </div>
       <div class="container-fluid">
+        <h1><b>Yorkshire Animal Shelter</b></h1>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -26,11 +24,31 @@
           </ul>
         </div>
       </div>
+      <div class="dropdown">
+        <a class="btn btn-primary" dropdown-toggle role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="background: rgb(211, 15, 146)" >
+          Choose Animal by Type:
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a class="dropdown-item" href="./Cat.html">Cat</a></li>
+          <li><a class="dropdown-item" href="./Dog.html">Dog</a></li>
+          <li><a class="dropdown-item" href="./GuineaPig.html">Guinea Pigs</a></li>
+          <li><a class="dropdown-item" href="./Hampster.html">Hampster</a></li>
+          <li><a class="dropdown-item" href="./Rabbit.html">Rabbit</a></li>
+        </ul>
+      </div>
     </nav>
 </head>
     <body>
      <div class="myDiv">
         <p><h3>About Us</h3>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="container-fluid">
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    </ul>
+                  </div>
+                </div>
+              </nav>
             Welcome to the Yorkshire Animal Shelter.
             <br>
             Here at the shelter work tirelessly to campaign against animal cruelty. We rely on the support of all our staff,
@@ -59,18 +77,6 @@
             them and train them.
         </p>
     </div>
-    <div class="dropdown">
-      <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-        Choose Animal by Type:
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <li><a class="dropdown-item" href="./Cat.html">Cat</a></li>
-        <li><a class="dropdown-item" href="./Dog.html">Dog</a></li>
-        <li><a class="dropdown-item" href="./GuineaPig.html">Guinea Pigs</a></li>
-        <li><a class="dropdown-item" href="./Hampster.html">Hampster</a></li>
-        <li><a class="dropdown-item" href="./Rabbit.html">Rabbit</a></li>
-      </ul>
-    </div>
       <div>
       <head>
         <meta charset="UTF-8">
@@ -80,5 +86,6 @@
     </div>
     </body>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
 </html>

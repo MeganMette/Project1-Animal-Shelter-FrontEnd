@@ -1,50 +1,105 @@
-'use strict';
+const contextPath = "http://localhost:8080";
+const output = document.getElementById("output");
 
-const textInput = document.getElementByType("textInput");
-const addButton = document.querySelector('#addButton');
+function getShelterAnimalByType() {
+  axios.get(contextPath + "/getShelterAnimal")
+    .then(res => {
+      output.innerHTML = "";
 
-addButton.addEventListener('click', function () {
-    addText(textInput.value);
-    textInput.value = '';
-})
+      const shelterAnimals = res.data;
 
-function addText(text) {
-    const newP = document.createElement("p");
-
-    console.log(newP);
-
-    newP.style = "color: red;"
-    newP.innerText = text;
-
-    console.log(newP);
-
-    output.appendChild(newP);
+      ShelterAnimals.forEach(ShelterAnimal => {
+        const newShelterAnimal = renderShelterAnimal(shelterAnimal);
+        output.appendChild(newShelterAnimal);
+      });
+    }).catch(err => console.error(err))
 }
 
-const tableBody = document.getElementByType('tableBody');
+function renderShelterAnimalByType(shelterAnimal) {
 
-const personForm = document.getElementByType('personForm');
+  const newColumn = document.createElement("div");
+  newColumn.className = "col";
 
-personForm.addEventListener('submit', function (event) {
-    event.preventDefault(); // stops form submitting and refreshing the page
+  const newShelterAnimal = document.createElement("div");
+  newShelterAnimal.className = "card";
+  newColumn.appendChild(newShelterAnimal);
 
-    const name = this.name.value;
-    const age = this.age.value;
+  const ShelterAnimalBody = document.createElement("div");
+  ShelterAnimalBody.className = "card-body";
+  newShelterAnimal.appendChild(ShelterAnimalBody);
 
-    const row = document.createElement('tr');
+  const ShelterAnimalName = document.createElement("h5");
+  ShelterAnimalName.className = "card-title";
+  ShelterAnimalName.innerText = ShelterAnimal.name;
+  ShelterAnimalBody.appendChild(ShelterAnimalName);
 
-    const nameField = document.createElement('td');
-    nameField.innerText = name;
+  const ShelterAnimalText = document.createElement("p");
+  ShelterAnimalText.className = "card-text";
+  ShelterAnimalText.innerHTML = "Name: " + ShelterAnimal.name;
+  ShelterAnimalText.innerHTML = "Age: " + ShelterAnimal.age;
+  ShelterAnimalText.innerHTML = "Gender: " + ShelterAnimal.gender;
+  ShelterAnimalText.innerHTML += "<br>";
+  ShelterAnimalText.innerHTML += "Breed: " + ShelterAnimal.breed;
+  ShelterAnimalText.innerHTML = "Size: " + ShelterAnimal.size;
+  ShelterAnimalText.innerHTML = "Location: " + ShelterAnimal.location;
+  ShelterAnimalText.innerHTML = "Additional Information: " + ShelterAnimal.additionalInformation;
+  ShelterAnimalBody.appendChild(ShelterAnimalText);
 
-    row.appendChild(nameField);
+  const ShelterAnimalFooter = document.createElement("div");
+  ShelterAnimalFooter.className = "card-footer"
+  newShelterAnimal.appendChild(ShelterAnimalFooter);
 
-    const ageField = document.createElement('td');
-    ageField.innerText = age;
+  const deleteShelterAnimalButton = document.createElement("a");
+  deleteShelterAnimalButton.className = "card-link";
+  deleteShelterAnimalButton.innerText = "Delete";
+  deleteShelterAnimalButton.addEventListener('click', () => deleteShelterAnimal(shelterAnimal.id));
+  ShelterAnimalFooter.appendChild(deleteShelterAnimalButton);
 
-    row.appendChild(ageField);
+  return newColumn;
+}
 
-    tableBody.appendChild(row);
+function deleteShelterAnimal(id) {
+  axios.delete(contextPath + "/removeShelterAnimal/" + animalId)
+    .then(() => getShelterAnimals())
+    .catch(err => console.error(err));
+}
 
+document.getElementById("shelterAnimalForm").addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  console.log("this: ", this);
+  console.log("this.animalType: ", this.animalType);
+  console.log("this.name: ", this.name);
+  console.log("this.age: ", this.age);
+  console.log("this.gender: ", this.gender);
+  console.log("this.breed: ", this.breed);
+  console.log("this.size: ", this.size);
+  console.log("this.location: ", this.location);
+  console.log("this.additionalInformation: ", this.additionalInformation);
+
+  const data = {
+    animalType: this.animalType.value,
+    name: this.name.value,
+    age: this.age.value,
+    gender: this.gender.value,
+    breed: this.breed.value,
+    size: this.size.value,
+    location: this.location.value,
+    additionalInformation: this.additionalInformation.value
+  };
+
+  axios.post(contextPath + "/createShelterAnimal", data, {
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    }
+  }).then(() => {
     this.reset();
     this.name.focus();
-})
+    getShelterAnimals();
+  })
+    .catch(err => console.error(err));
+
+});
+
+getShelterAnimals();
