@@ -15,7 +15,7 @@ function getShelterAnimal() {
         // console.log("New shelterAnimal: ", newshelterAnimal);
         output.appendChild(newShelterAnimal);
       });
-    }).catch(err => console.error(err))
+    }).catch(err => console.error(err));
 }
 
 {/* <div class="card" style="width: 18rem;">
@@ -57,14 +57,21 @@ function renderShelterAnimal(shelterAnimal) {
   shelterAnimalText.innerHTML += "<br>";
   shelterAnimalText.innerHTML += "Additional Information: " + shelterAnimal.additionalInformation;
   shelterAnimalBody.appendChild(shelterAnimalText);
-
+  
   const deleteShelterAnimalButton = document.createElement("a");
   deleteShelterAnimalButton.className = "card-link";
   deleteShelterAnimalButton.innerText = "Delete";
-  deleteShelterAnimalButton.addEventListener('click', () => deletePenguin(sheterAnimal.animalId));
-  penguinFooter.appendChild(deleteShelterAnimalButton);
+  deleteShelterAnimalButton.addEventListener('click', () => deleteShelterAnimal(sheterAnimal.animalId));
+  shelterAnimalBody.appendChild(deleteShelterAnimalButton);
+
+  const updateShelterAnimalButton = document.createElement("a");
+  updateShelterAnimalButton.className = "card btn";
+  updateShelterAnimalButton.innerText = "Update";
+  updateShelterAnimalButton.addEventListener('click', () => updateShelterAnimal(ShelterAnimal.animalId));
+  shelterAnimalBody.appendChild(updateShelterAnimalButton);
 
   return newColumn;
+
 }
 
 function deleteShelterAnimal(animalId) {
@@ -72,6 +79,7 @@ function deleteShelterAnimal(animalId) {
     .then(() => getShelterAnimal())
     .catch(err => console.error(err));
 }
+
 
 document.getElementById("animalForm").addEventListener('submit', function (event) {
   event.preventDefault();
@@ -94,18 +102,18 @@ document.getElementById("animalForm").addEventListener('submit', function (event
     location: this.location.value,
     additionalInformation: this.additionalInformation.value
 
-  };
+};
 
-  axios.post(contextPath + "/createShelterAnimal", data, {
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
+axios.post(contextPath + "/createShelterAnimal", data, {
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
     }
   })
-    .then(() => {
-        this.reset();
-        this.name.focus();
-        getShelterAnimal();
+  .then(() => {
+    this.reset();
+    this.name.focus();
+    getShelterAnimal();
   })
     .catch(err => console.error(err));
 

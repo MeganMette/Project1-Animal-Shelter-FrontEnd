@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a pet</title>
+    <title>Yorkshire Animal Shelter</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
@@ -17,14 +17,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./HomePage.html">Home</a>
+              <a class="dropdown-item" href="./HomePage.html" style="color: rgb(211, 15, 146)"><b>Home</b></a>
             </li>
-                <li><a class="dropdown-item" href="./Create.html">Create</a></li>
+                <li><a class="nav-link active" aria-current="page" href="./Create.html" style="background: rgb(211, 15, 146)">Create</a></li>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+  </nav>
+  <div class="myDiv">
+      <p><h3>Create a Pet</h3>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+              <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  </ul>
+                </div>
+              </div>
+            </nav>
 </head>
 <body>
     <main class="container">
@@ -54,9 +65,10 @@
               <br>
                 <h3>Animals Created</h3>
                     <div id="output">
-            </div>
-            <div>
-              
+                  <form action="">
+                      <button class="btn btn-primary mt-2" type="Update">Update</button>
+                      <button class="btn btn-primary mt-2" type="Delete">Delete</button>
+                  </form>
             </div>
         </section>
     </div>
