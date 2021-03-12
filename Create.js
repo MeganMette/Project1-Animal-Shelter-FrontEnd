@@ -1,98 +1,114 @@
-'use strict';
+"use strict"
 
-const textInput = document.getElementByType("textInput");
-const addButton = document.querySelector('#addButton');
+const contextPath = "http://localhost:8080";
+const output = document.getElementById("output");
 
-addButton.addEventListener('click', function () {
-    addText(textInput.value);
-    textInput.value = '';
-})
+function getShelterAnimal() {
+  axios.get(contextPath + "/getShelterAnimal")
+    .then(res => {
+      output.innerHTML = "";
 
-function addText(text) {
-    const newP = document.createElement("p");
+      const shelterAnimal = res.data;
 
-    console.log(newP);
-
-    newP.style = "color: red;"
-    newP.innerText = text;
-
-    console.log(newP);
-
-    output.appendChild(newP);
+      shelterAnimal.forEach(shelterAnimal => {
+        const newShelterAnimal = renderShelterAnimal(shelterAnimal);
+        // console.log("New shelterAnimal: ", newshelterAnimal);
+        output.appendChild(newShelterAnimal);
+      });
+    }).catch(err => console.error(err))
 }
 
-const tableBody = document.getElementByType('tableBody');
+{/* <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div> */}
 
-const animalForm = document.getElementByType('animalForm');
+function renderShelterAnimal(shelterAnimal) {
 
-animalForm.addEventListener('submit', function (event) {
-    event.preventDefault(); 
+  const newColumn = document.createElement("div");
+  newColumn.className = "col";
 
-    const animalType = this.animalType.value;
-    const name = this.name.value;
-    const age = this.age.value;
-    const gender = this.gender.value;
-    const  breed = this.breed.value;
-    const size = this.size.value;
-    const location = this.location.value;
-    const additionalInformation = this.additionalInformation.value;
+  const newShelterAnimal = document.createElement("div");
+  newShelterAnimal.className = "card";
+  newColumn.appendChild(newShelterAnimal);
 
-    const row = document.createElementByType('tr');
+  const shelterAnimalBody = document.createElement("div");
+  shelterAnimalBody.className = "card-body";
+  newShelterAnimal.appendChild(shelterAnimalBody);
 
-    const animalTypeField = document.createElementByType('td');
-    animalTypeField.innerText = animalType;
+  const shelterAnimalName = document.createElement("h5");
+  shelterAnimalName.className = "card-title";
+  shelterAnimalName.innerText = shelterAnimal.name;
+  shelterAnimalBody.appendChild(shelterAnimalName);
 
-    row.appendChild(aimalTypeField);
+  const shelterAnimalText = document.createElement("p");
+  shelterAnimalText.className = "card-text";
+  shelterAnimalText.innerHTML = "Age: " + shelterAnimal.age;
+  shelterAnimalText.innerHTML += "<br>";
+  shelterAnimalText.innerHTML += "Gender: " + shelterAnimal.gender;
+  shelterAnimalText.innerHTML += "<br>";
+  shelterAnimalText.innerHTML += "Breed: " + shelterAnimal.breed;
+  shelterAnimalText.innerHTML += "<br>";
+  shelterAnimalText.innerHTML += "Size: " + shelterAnimal.size;
+  shelterAnimalText.innerHTML += "<br>";
+  shelterAnimalText.innerHTML += "Location: " + shelterAnimal.location;
+  shelterAnimalText.innerHTML += "<br>";
+  shelterAnimalText.innerHTML += "Additional Information: " + shelterAnimal.additionalInformation;
+  shelterAnimalBody.appendChild(shelterAnimalText);
 
-    const row = document.createElementbyType('tr');
+  const deleteShelterAnimalButton = document.createElement("a");
+  deleteShelterAnimalButton.className = "card-link";
+  deleteShelterAnimalButton.innerText = "Delete";
+  deleteShelterAnimalButton.addEventListener('click', () => deletePenguin(sheterAnimal.animalId));
+  penguinFooter.appendChild(deleteShelterAnimalButton);
 
-    const nameField = document.createElementByType('td');
-    nameField.innerText = name;
+  return newColumn;
+}
 
-    row.appendChild(nameField);
+function deleteShelterAnimal(animalId) {
+  axios.delete(contextPath + "/removeAnimalShleter/" + animalId)
+    .then(() => getShelterAnimal())
+    .catch(err => console.error(err));
+}
 
-    const ageField = document.createElementByType('td');
-    ageField.innerText = age;
+document.getElementById("animalForm").addEventListener('submit', function (event) {
+  event.preventDefault();
 
-    row.appendChild(ageField);
+  console.log("this: ", this);
+  console.log("this.name:", this.name);
+  console.log("this.age:", this.age);
+  console.log("this.gender:", this.gender);
+  console.log("this.breed:", this.breed);
+  console.log("this.size: ", this.size);
+  console.log("this.location: ", this.location);
+  console.log("this.additionalInformation: ", this.additionalInformation);
 
-    const row = document.createElementByType('tr');
+  const data = {
+    name: this.name.value,
+    age: this.age.value,
+    gender: this.gender.value,
+    breed: this.breed.value,
+    size: this.size.value,
+    location: this.location.value,
+    additionalInformation: this.additionalInformation.value
 
-    const genderField = document.createElementByType('td');
-    genderField.innerText = gender;
+  };
 
-    row.appendChild(genderField);
+  axios.post(contextPath + "/createShelterAnimal", data, {
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    }
+  })
+    .then(() => {
+        this.reset();
+        this.name.focus();
+        getShelterAnimal();
+  })
+    .catch(err => console.error(err));
 
-    const row = document.createElementByType('tr');
+});
 
-    const breedField = document.createElementByType('td');
-    breedField.innerText = breed;
-
-    row.appendChild(breedField);
-
-    const row = document.createElementByType('tr');
-
-    const sizeField = document.createElementByType('td');
-    sizeField.innerText = size;
-
-    row.appendChild(sizeField);
-
-    const row = document.createElementByType('tr');
-
-    const locationField = document.createElementByType('td');
-    locationField.innerText = location;
-
-    row.appendChild(locationField);
-
-    const row = document.createElementByType('tr');
-
-    const additionalInformationField = document.createElementByType('td');
-    additionalInformationField.innerText = additionalInformation;
-
-    row.appendChild(additionalInformationField);
-
-    tableBody.appendChild(row);
-
-    this.reset();
-    this.name.focus();
-})
+getShelterAnimal();
