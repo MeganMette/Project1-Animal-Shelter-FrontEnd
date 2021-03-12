@@ -10,7 +10,7 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <head>   
-    <link rel="stylesheet" href="./index.css">  
+    <link rel="stylesheet" href="./HomePage.css">  
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid">
         <h1><b>Yorkshire Animal Shelter</b></h1>
@@ -23,18 +23,6 @@
             </li>
           </ul>
         </div>
-      </div>
-      <div class="dropdown">
-        <a class="btn btn-secondary" dropdown-toggle role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="background: rgb(211, 15, 146)" >
-          Choose Animal by Type:
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li><a class="dropdown-item" href="./Cat.html">Cat</a></li>
-          <li><a class="dropdown-item" href="./Dog.html">Dog</a></li>
-          <li><a class="dropdown-item" href="./GuineaPig.html">Guinea Pigs</a></li>
-          <li><a class="dropdown-item" href="./Hampster.html">Hampster</a></li>
-          <li><a class="dropdown-item" href="./Rabbit.html">Rabbit</a></li>
-        </ul>
       </div>
     </nav>
 </head>
@@ -63,25 +51,18 @@
                 <button class="btn btn-primary mt-2">Add</button>
             </form>
             <div>
-                <h3>Animal Created</h3>
-                <table class="table table-striped">
-                    <thead>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Breed</th>
-                        <th>Size</th>
-                        <th>Location</th>
-                        <th>Additional Information</th>
-                    </thead>
-                    <tbody id="tableBody">
-                    </tbody>
-                </table>
+              <br>
+                <h3>Animals Created</h3>
+                    <div id="output">
+            </div>
+            <div>
+              
             </div>
         </section>
     </div>
     </main>
-    <script src="./HomePage.html"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./Create.js"></script>
 </body>
 
 </html>
