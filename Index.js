@@ -1,6 +1,6 @@
 'use strict'
 
-let id;
+let animalId;
 const modalBg = document.querySelector('.modal-bg');
 const modalClose = document.querySelector('.modal-close');
 const output = document.getElementById('output');
@@ -41,7 +41,7 @@ function renderShelterAnimal(shelterAnimal) {
     editButton.className = "btn btn-primary";
     editButton.innerText = "Edit";
     editButton.addEventListener('click', function () {
-        id = shelterAnimal.animalId;
+        animalId = shelterAnimal.animalId;
         modalBg.classList.add('bg-active');
         if (shelterAnimal.animalType != '') {
             document.getElementById('modal-shelterAnimal-animalType').value = shelterAnimal.animalType
