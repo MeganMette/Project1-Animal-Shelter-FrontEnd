@@ -44,28 +44,28 @@ function renderShelterAnimal(shelterAnimal) {
         animalId = shelterAnimal.animalId;
         modalBg.classList.add('bg-active');
         if (shelterAnimal.animalType != '') {
-            document.getElementById('modal-shelterAnimal-animalType').value = shelterAnimal.animalType
+            document.getElementByAnimalId('modal-shelterAnimal-animalType').value = shelterAnimal.animalType
         };
         if (shelterAnimal.name != '') {
-            document.getElementById('modal-shelterAnimal-name').value = shelterAnimal.name
+            document.getElementByAnimalId('modal-shelterAnimal-name').value = shelterAnimal.name
         };
         if (shelterAnimal.age != '') {
-            document.getElementById('modal-shelterAnimal-age').value = shelterAnimal.age
+            document.getElementByAnimalId('modal-shelterAnimal-age').value = shelterAnimal.age
         };
         if (shelterAnimal.gender != '') {
-            document.getElementById('modal-shelterAnimal-gender').value = shelterAnimal.gender
+            document.getElementByAnimalId('modal-shelterAnimal-gender').value = shelterAnimal.gender
         };
         if (shelterAnimal.breed != '') {
-            document.getElementById('modal-shelterAnimal-breed').value = shelterAnimal.breed
+            document.getElementByAnimalId('modal-shelterAnimal-breed').value = shelterAnimal.breed
         };
         if (shelterAnimal.size != '') {
-            document.getElementById('modal-shelterAnimal-size').value = shelterAnimal.size
+            document.getElementByAnimalId('modal-shelterAnimal-size').value = shelterAnimal.size
         };
         if (shelterAnimal.location != '') {
-            document.getElementById('modal-shelterAnimal-location').value = shelterAnimal.location
+            document.getElementByAnimalId('modal-shelterAnimal-location').value = shelterAnimal.location
         };
         if (shelterAnimal.additionalInformation != '') {
-            document.getElementById('modal-shelterAnimal-additionalInformation').value = shelterAnimal.additionalInformation
+            document.getElementByAnimalId('modal-shelterAnimal-additionalInformation').value = shelterAnimal.additionalInformation
         };
     })
     cardBody.appendChild(editButton);
