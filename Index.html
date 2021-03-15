@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yorkshire Animal Shelter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./Create.css" />
+    <script src="https://kit.fontawesome.com/d5e8686235.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="main-container">
+        <header class="header">
+            <img src="dog.jpg" width="140" height="100" margin: 120px>
+            <h1><i class="fas fa-shelterAnimal-open" style="color: white" padding: 20px></i><span
+                    class="text"><b><u>Yorkshire Animal Shelter</u></b></span></h1>
+            <img src="dog.jpg" width="140" height="100" margin: 120px>
+        </header>
+        <a id="aboutUs" class="dropdown-item" style="color: white" padding: 20px href="./About.html">
+            <h3>About Us</h3>
+        </a>
+        <form id="shelterAnimalForm">
+            <div class="form-group">
+                <label for="formGroupExampleInput">Animal Type</label>
+                <input name="animalType" class="form-control" id="shelterAnimal-animalType"
+                    placeholder="Enter Shelter Animal Type" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Name</label>
+                <input name="name" class="form-control" id="shelterAnimal-name" placeholder="Enter Name"
+                    autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Age</label>
+                <input name="age" class="form-control" id="shelterAnimal-age" placeholder="Enter Age"
+                    autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Gender</label>
+                <input name="gender" class="form-control" id="shelterAnimal-gender" placeholder="Enter Animal gender"
+                    autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Breed</label>
+                <input name="breed" class="form-control" id="shelterAnimal-breed" placeholder="Enter Animal breed"
+                    autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Size</label>
+                <input name="size" class="form-control" id="shelterAnimal-size" placeholder="Enter Animal size"
+                    autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Location</label>
+                <input name="location" class="form-control" id="shelterAnimal-location"
+                    placeholder="Enter Animals Locations" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Additional Information</label>
+                <input name="additionalInformation" class="form-control" id="shelterAnimal-additionalInformation"
+                    placeholder="Enter Any Additional Information" autocomplete="off">
+            </div>
+            <br>
+            <button class="add-button" type="submit">Add Animal</button>
+        </form>
+
+
+        <div class="modal-bg">
+            <form id="modal-form">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Animal Type</label>
+                    <input name="animalType" class="form-control" id="modal-shelterAnimal-animalType"
+                        placeholder="Enter Shelter Animal Type" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Name</label>
+                    <input name="name" class="form-control" id="modal-shelterAnimal-name" placeholder="Enter Name"
+                        autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Age</label>
+                    <input name="age" class="form-control" id="modal-shelterAnimal-age" placeholder="Enter Age"
+                        autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Gender</label>
+                    <input name="gender" class="form-control" id="modal-shelterAnimal-gender"
+                        placeholder="Enter Animal gender" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Breed</label>
+                    <input name="breed" class="form-control" id="modal-shelterAnimal-breed"
+                        placeholder="Enter Animal breed" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Size</label>
+                    <input name="size" class="form-control" id="modal-shelterAnimal-size"
+                        placeholder="Enter Animal size" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Location</label>
+                    <input name="location" class="form-control" id="modal-shelterAnimal-location"
+                        placeholder="Enter Animals Location" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Additional Information</label>
+                    <input name="additionalInformation" class="form-control"
+                        id="modal-shelterAnimal-additionalInformation" placeholder="Enter Any Additional Information"
+                        autocomplete="off">
+                </div>
+                <br>
+                <button class="modal-button" type="submit">Update Animal</button>
+                <span class="modal-close">X</span>
+            </form>
+        </div>
+    </div>
+
+    <div id="output" class="container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./Index.js"></script>
+</body>
+
+</html>

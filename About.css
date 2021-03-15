@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-image: linear-gradient(120deg, #411e6e 0%, #a0498d 100%);
+    color: white;
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+  }
+  header {
+    font-size: 2rem;
+  }
+  
+  .text {
+    color: white;
+  }
+  
+  header {
+    min-height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    text-align: center;
+  }
+
+  .aboutUs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
